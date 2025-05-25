@@ -1,0 +1,207 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.gallery-container {
+    width: 80%;
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery {
+    position: relative;
+}
+
+.slides {
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.nav {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.nav-btn {
+    width: 15px;
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.6);
+    margin: 0 5px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+#slide1:checked ~ .slides {
+    transform: translateX(0);
+}
+
+#slide2:checked ~ .slides {
+    transform: translateX(-100%);
+}
+
+#slide3:checked ~ .slides {
+    transform: translateX(-200%);
+}
+
+#slide4:checked ~ .slides {
+    transform: translateX(-300%);
+}
+
+#slide1:checked ~ .nav label[for="slide1"],
+#slide2:checked ~ .nav label[for="slide2"],
+#slide3:checked ~ .nav label[for="slide3"],
+#slide4:checked ~ .nav label[for="slide4"] {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+input[type="radio"]:checked ~ .slides {
+    animation: slide 12s infinite;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-100%); }
+    50% { transform: translateX(-200%); }
+    75% { transform: translateX(-300%); }
+    100% { transform: translateX(0); }
+}
+.gallery-container {
+      width: 80%;
+      margin: auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+    }
+
+    .slide img {
+      width: 100%;
+      display: block;
+      cursor: pointer;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 12px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 24px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .paused-banner {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      display: none;
+    }
+
+    /* Estilos solo para la sección de contacto */
+#contacto {
+    padding: 40px;
+    text-align: center;
+    background-color: #f4f4f4; /* Color de fondo solo para la sección de contacto */
+}
+
+/* Estilos para la tarjeta dentro de la sección de contacto */
+#contacto .card {
+    display: flex; /* Usamos flexbox para alinear los dos bloques */
+    justify-content: space-between; /* Espacio entre el lado izquierdo y derecho */
+    gap: 30px; /* Espacio entre ambos bloques */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    flex-wrap: wrap; /* Asegura que los bloques se ajusten en pantallas pequeñas */
+}
+
+/* Estilos para el lado izquierdo de la tarjeta */
+#contacto .left-side {
+    flex: 1; /* El lado izquierdo ocupa el 50% */
+    padding-right: 15px;
+}
+
+#contacto .right-side {
+    flex: 1; /* El lado derecho ocupa el 50% */
+    padding-left: 15px;
+}
+
+/* Títulos dentro de los paneles */
+#contacto .card h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+/* Párrafos dentro de los paneles */
+#contacto .card p {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+    #contacto .card {
+        flex-direction: column; /* En pantallas pequeñas, apilar los bloques */
+        gap: 20px; /* Menos espacio entre los bloques */
+    }
+
+    #contacto .left-side,
+    #contacto .right-side {
+        flex: 1 100%; /* Los dos bloques ocupan el 100% del ancho en pantallas pequeñas */
+    }
+}
