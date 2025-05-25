@@ -205,3 +205,43 @@ input[type="radio"]:checked ~ .slides {
         flex: 1 100%; /* Los dos bloques ocupan el 100% del ancho en pantallas pequeñas */
     }
 }
+@media (max-width: 600px) {
+  .panel {
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .mapa-wrapper, .mapa-contenedor {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px; /* menos padding en móvil */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .mapa-contenedor h2 {
+    font-size: 1.2rem; /* tamaño más pequeño solo en móvil */
+    margin: 0 0 10px 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    padding: 0 5px;
+  }
+}
+.line-break {
+  display: inline; /* normal en escritorio */
+}
+
+/* SOLO en móviles: separa a la línea de abajo */
+@media (max-width: 600px) {
+  .line-break {
+    display: block;
+    margin-left: 1.2em; /* opcional, alinea con el texto */
+  }
+}
